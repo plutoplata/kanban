@@ -62,19 +62,12 @@
       letter-spacing: 0.12em;
       color: var(--muted);
       display: flex;
-      justify-content: space-between;
       align-items: center;
       cursor: pointer;
     }
     details.column summary::-webkit-details-marker { display: none; }
     details.column[open] summary { border-bottom: 1px solid rgba(255,255,255,0.05); }
     details.column .tasks { padding: 18px; }
-    .count {
-      background: rgba(255,255,255,0.1);
-      padding: 2px 10px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-    }
     .column h2 {
       margin: 0 0 12px;
       font-size: 1.1rem;
@@ -165,7 +158,7 @@
   
   <section class="board">
     <details class="column" open>
-      <summary>Backlog <span class="count">3</span></summary>
+      <summary>Backlog</summary>
       <div class="tasks">
         <div class="card backlog">Social Handles <small>@PlutoPlata_Sentiment <span class="loe loe-s">S</span></small></div>
         <div class="card backlog">Set up SSH keys for new GitHub account <span class="loe loe-s">S</span></div>
@@ -174,7 +167,7 @@
     </details>
 
     <details class="column" open>
-      <summary>In Progress <span class="count">11</span></summary>
+      <summary>In Progress</summary>
       <div class="tasks">
         <div class="card progress">Portfolio Content — flesh out "Design Leadership" + "Tastemaker" case studies. <span class="loe loe-l">L</span></div>
         <div class="card progress">Investigate Browser Control / Chrome Extension Relay to enable web capture. <span class="loe loe-l">L</span></div>
@@ -191,7 +184,7 @@
     </details>
 
     <details class="column" open>
-      <summary>For Review <span class="count">2</span></summary>
+      <summary>For Review</summary>
       <div class="tasks">
         <div class="card ready">Token usage panel for dashboard (blocked on logging upgrade).</div>
         <div class="card ready">Visual Kanban automation ideas (awaiting direction).</div>
@@ -199,7 +192,7 @@
     </details>
 
     <details class="column" open>
-      <summary>Done <span class="count">9</span></summary>
+      <summary>Done</summary>
       <div class="tasks">
         <div class="card done">Bootstrap cleanup + `BOOTSTRAP.md` removal.</div>
         <div class="card done">Persona locked: Friendly Black English Cocker Spaniel (Charlie vibes).</div>

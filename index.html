@@ -53,6 +53,28 @@
       flex-direction: column;
       max-height: calc(100vh - 160px);
     }
+    details.column { padding: 0; }
+    details.column summary {
+      list-style: none;
+      padding: 18px;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    details.column summary::-webkit-details-marker { display: none; }
+    details.column[open] summary { border-bottom: 1px solid rgba(255,255,255,0.05); }
+    details.column .tasks { padding: 18px; }
+    .count {
+      background: rgba(255,255,255,0.1);
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+    }
     .column h2 {
       margin: 0 0 12px;
       font-size: 1.1rem;

@@ -86,6 +86,22 @@
       color: rgba(255,255,255,0.7);
       margin-bottom: 6px;
     }
+    .loe {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 18px;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin-left: 6px;
+    }
+    .loe-s { background: #22c55e; color: #041208; }
+    .loe-m { background: #f97316; color: #1f1000; }
+    .loe-l { background: #ef4444; color: #2b0b0b; }
+    .loe-xl { background: #a855f7; color: #160323; }
     .card.backlog { border-left: 4px solid var(--backlog); }
     .card.ready { border-left: 4px solid var(--ready); }
     .card.progress { border-left: 4px solid var(--progress); }
@@ -128,25 +144,25 @@
     <article class="column">
       <h2>Backlog</h2>
       <div class="tasks">
-        <div class="card backlog">Social Handles <small>@PlutoPlata_Sentiment · LOE: S</small></div>
-        <div class="card backlog">Set up SSH keys for new GitHub account · LOE: S</div>
-        <div class="card backlog">Configure dotfiles / dev environment preferences · LOE: M</div>
+        <div class="card backlog">Social Handles <small>@PlutoPlata_Sentiment <span class="loe loe-s">S</span></small></div>
+        <div class="card backlog">Set up SSH keys for new GitHub account <span class="loe loe-s">S</span></div>
+        <div class="card backlog">Configure dotfiles / dev environment preferences <span class="loe loe-m">M</span></div>
       </div>
     </article>
 
     <article class="column">
       <h2>Ready / Next</h2>
       <div class="tasks">
-        <div class="card ready">Portfolio Content — flesh out "Design Leadership" + "Tastemaker" case studies. · LOE: L</div>
-        <div class="card ready">Investigate Browser Control / Chrome Extension Relay to enable web capture. · LOE: L</div>
-        <div class="card ready">Security Hardening — pick posture (Lockdown vs Balanced) + schedule actions. · LOE: M</div>
-        <div class="card ready">Configure GitHub PAT inside OpenClaw for automated deploys. · LOE: S</div>
-        <div class="card ready">Configure X (Twitter) API keys in OpenClaw · LOE: M</div>
-        <div class="card ready">Define sub-agent team structure · LOE: M/L</div>
-        <div class="card ready">System updates — macOS + Homebrew audit · LOE: M</div>
+        <div class="card ready">Portfolio Content — flesh out "Design Leadership" + "Tastemaker" case studies. <span class="loe loe-l">L</span></div>
+        <div class="card ready">Investigate Browser Control / Chrome Extension Relay to enable web capture. <span class="loe loe-l">L</span></div>
+        <div class="card ready">Security Hardening — pick posture (Lockdown vs Balanced) + schedule actions. <span class="loe loe-m">M</span></div>
+        <div class="card ready">Configure GitHub PAT inside OpenClaw for automated deploys. <span class="loe loe-s">S</span></div>
+        <div class="card ready">Configure X (Twitter) API keys in OpenClaw <span class="loe loe-m">M</span></div>
+        <div class="card ready">Define sub-agent team structure <span class="loe loe-xl">M/L</span></div>
+        <div class="card ready">System updates — macOS + Homebrew audit <span class="loe loe-m">M</span></div>
         <div class="card ready">Reddit API setup for sentiment monitoring · LOE: M</div>
         <div class="card ready">Google Calendar access wiring · LOE: M</div>
-        <div class="card ready">Review saved Instagram inspiration links once Brave fetch is verified · LOE: S/M</div>
+        <div class="card ready">Review saved Instagram inspiration links once Brave fetch is verified <span class="loe loe-m">S/M</span></div>
       </div>
     </article>
 

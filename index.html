@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pluto Plata Kanban</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1221;
+      --card-bg: #152037;
+      --card-border: #1f2d4a;
+      --text: #f0f4ff;
+      --muted: #94a3b8;
+      --backlog: #ff6b6b;
+      --ready: #4ade80;
+      --progress: #60a5fa;
+      --done: #c084fc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 28px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2.2rem;
+    }
+    p.subtitle {
+      margin: 0 0 32px;
+      color: var(--muted);
+    }
+    .board {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .column {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100vh - 160px);
+    }
+    .column h2 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+    .tasks {
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-right: 6px;
+    }
+    .card {
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      font-size: 0.92rem;
+      line-height: 1.4;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    }
+    .card span.tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 6px;
+    }
+    .card.backlog { border-left: 4px solid var(--backlog); }
+    .card.ready { border-left: 4px solid var(--ready); }
+    .card.progress { border-left: 4px solid var(--progress); }
+    .card.done { border-left: 4px solid var(--done); }
+    .card small {
+      color: var(--muted);
+      display: block;
+      margin-top: 8px;
+      font-size: 0.8rem;
+    }
+    footer {
+      margin-top: 32px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pluto Plata Ops — Kanban</h1>
+  <p class="subtitle">Snapshot generated from DASHBOARD.md · Updated Feb 26, 2026</p>
+
+  <section class="board">
+    <article class="column">
+      <h2>Backlog</h2>
+      <div class="tasks">
+        <div class="card backlog">Social Handles <small>@PlutoPlata_Sentiment</small></div>
+        <div class="card backlog">Set up SSH keys for new GitHub account</div>
+        <div class="card backlog">Configure dotfiles / dev environment preferences</div>
+      </div>
+    </article>
+
+    <article class="column">
+      <h2>Ready / Next</h2>
+      <div class="tasks">
+        <div class="card ready">Portfolio Content — flesh out "Design Leadership" + "Tastemaker" case studies.</div>
+        <div class="card ready">Investigate Browser Control / Chrome Extension Relay to enable web capture.</div>
+        <div class="card ready">Security Hardening — pick posture (Lockdown vs Balanced) + schedule actions.</div>
+        <div class="card ready">Configure GitHub PAT inside OpenClaw for automated deploys.</div>
+        <div class="card ready">Configure X (Twitter) API keys in OpenClaw.</div>
+        <div class="card ready">Define sub-agent team structure.</div>
+        <div class="card ready">System updates — macOS + Homebrew audit.</div>
+        <div class="card ready">Reddit API setup for sentiment monitoring.</div>
+        <div class="card ready">Google Calendar access wiring.</div>
+        <div class="card ready">Review saved Instagram inspiration links once Brave fetch is verified.</div>
+      </div>
+    </article>
+
+    <article class="column">
+      <h2>In Progress</h2>
+      <div class="tasks">
+        <div class="card progress">Email setup — `plutoplata.ops@gmail.com` wiring + SMTP verification.</div>
+        <div class="card progress">Dashboard automation + token tracking.</div>
+        <div class="card progress">Initial Persona + Identity alignment.</div>
+      </div>
+    </article>
+
+    <article class="column">
+      <h2>Done</h2>
+      <div class="tasks">
+        <div class="card done">Bootstrap cleanup + `BOOTSTRAP.md` removal.</div>
+        <div class="card done">Persona locked: Friendly Black English Cocker Spaniel (Charlie vibes).</div>
+        <div class="card done">User profile captured: Truong (BJJ blue belt, chess player).</div>
+        <div class="card done">Natural texting cadence established.</div>
+        <div class="card done">Portfolio skeleton (HTML/CSS) built.</div>
+        <div class="card done">Basic security check (firewall) confirmed.</div>
+        <div class="card done">Email sending verified end-to-end.</div>
+        <div class="card done">Brave Search API configured + `web_fetch` enabled.</div>
+      </div>
+    </article>
+  </section>
+
+  <footer>Pluto Plata Ops · Generated locally · GitHub Pages coming next.</footer>
+</body>
+</html>

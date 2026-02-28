@@ -14,10 +14,9 @@
       --card-border: #1f2d4a;
       --text: #f0f4ff;
       --muted: #94a3b8;
-      --backlog: #ff6b6b;
-      --ready: #4ade80;
-      --progress: #60a5fa;
-      --done: #c084fc;
+      --accent: #1d1d1f;
+      --pluto: #60a5fa;
+      --truong: #ef4444;
     }
     * { box-sizing: border-box; }
     body {
@@ -28,10 +27,6 @@
       min-height: 100vh;
       padding: 40px 28px;
     }
-    h1 {
-      margin: 0 0 10px;
-      font-size: 2.2rem;
-    }
     p.subtitle {
       margin: 0 0 24px;
       color: var(--muted);
@@ -39,22 +34,42 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
+    .token-panel {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .token-panel strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #ffb86c;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+    .token-panel ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: var(--muted);
+    }
     .board {
       display: grid;
       grid-template-columns: repeat(4, minmax(230px, 1fr));
       gap: 20px;
     }
-    .column {
+    details.column {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.05);
       border-radius: 16px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
+      padding: 0;
       max-height: calc(100vh - 160px);
+      position: relative;
     }
-    details.column { position: relative; }
-    details.column summary { position: sticky; top: 0; z-index: 2; background: rgba(11,18,33,0.95); }
     details.column summary {
       list-style: none;
       padding: 18px;
@@ -65,23 +80,19 @@
       display: flex;
       align-items: center;
       cursor: pointer;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: rgba(11,18,33,0.95);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     details.column summary::-webkit-details-marker { display: none; }
-    details.column[open] summary { border-bottom: 1px solid rgba(255,255,255,0.05); }
-    details.column .tasks { padding: 18px; }
-    .column h2 {
-      margin: 0 0 12px;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-    .tasks {
+    details.column .tasks {
+      padding: 18px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      padding-right: 6px;
     }
     .card {
       border-radius: 14px;
@@ -92,16 +103,14 @@
       line-height: 1.4;
       box-shadow: 0 10px 20px rgba(0,0,0,0.25);
     }
-    .card span.tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 6px;
+    .card small {
+      color: var(--muted);
+      display: block;
+      margin-top: 8px;
+      font-size: 0.8rem;
     }
+    .card.assigned-pluto { border-left: 4px solid var(--pluto); }
+    .card.assigned-truong { border-left: 4px solid var(--truong); }
     .loe {
       display: inline-flex;
       align-items: center;
@@ -118,47 +127,40 @@
     .loe-m { background: #f97316; color: #1f1000; }
     .loe-l { background: #ef4444; color: #2b0b0b; }
     .loe-xl { background: #a855f7; color: #160323; }
-        .card.assigned-pluto { border-left: 4px solid var(--progress); }
-    .card.assigned-truong { border-left: 4px solid var(--backlog); }
-    .card small {
-      color: var(--muted);
-      display: block;
-      margin-top: 8px;
-      font-size: 0.8rem;
-    }
     footer {
       margin-top: 32px;
       color: var(--muted);
       font-size: 0.85rem;
     }
-
     @media (max-width: 1100px) {
-      .board {
-        grid-template-columns: repeat(2, minmax(220px, 1fr));
-      }
+      .board { grid-template-columns: repeat(2, minmax(220px, 1fr)); }
     }
-
     @media (max-width: 700px) {
-      body {
-        padding: 28px 18px;
-      }
-      .board {
-        grid-template-columns: 1fr;
-      }
-      .column {
-        max-height: none;
-      }
+      body { padding: 28px 18px; }
+      .board { grid-template-columns: 1fr; }
+      details.column { max-height: none; }
     }
   </style>
 </head>
 <body>
   <p class="subtitle">Updated Feb 26, 2026</p>
 
-  
+  <section class="token-panel">
+    <strong>Token Usage</strong>
+    <ul>
+      <li><em>Last Snapshot:</em> N/A (provider reporting unavailable)</li>
+      <li><em>OpenAI Cap:</em> $20/month — reserve usage until official quota data arrives.</li>
+      <li><em>Google/Gemini:</em> No usage data exposed yet.</li>
+      <li><em>Local Log:</em> ~/.openclaw/logs/provider_usage.log</li>
+    </ul>
+  </section>
+
   <section class="board">
     <details class="column" open>
       <summary>Backlog</summary>
       <div class="tasks">
+        <div class="card assigned-pluto">Social Handles <small>@PlutoPlata_Sentiment</small></div>
+        <div class="card assigned-pluto">Set up SSH keys for new GitHub account</div>
         <div class="card assigned-truong">Configure dotfiles / dev environment preferences <span class="loe loe-m">M</span></div>
       </div>
     </details>
@@ -168,23 +170,24 @@
       <div class="tasks">
         <div class="card assigned-pluto">Portfolio Content — flesh out "Design Leadership" + "Tastemaker" case studies. <span class="loe loe-l">L</span></div>
         <div class="card assigned-pluto">Investigate Browser Control / Chrome Extension Relay to enable web capture. <span class="loe loe-l">L</span></div>
-        <div class="card assigned-truong">Security Hardening — pick posture (Lockdown vs Balanced) + schedule actions. <span class="loe loe-m">M</span></div>
-        <div class="card assigned-pluto">Configure GitHub PAT inside OpenClaw for automated deploys. <span class="loe loe-s">S</span></div>
+        <div class="card assigned-pluto">Reddit API setup for sentiment monitoring <span class="loe loe-m">M</span></div>
         <div class="card assigned-pluto">Configure X (Twitter) API keys in OpenClaw <span class="loe loe-m">M</span></div>
-        <div class="card assigned-pluto">Define sub-agent team structure <span class="loe loe-xl">M/L</span></div>
+        <div class="card assigned-pluto">Configure GitHub PAT inside OpenClaw for automated deploys. <span class="loe loe-s">S</span></div>
+        <div class="card assigned-pluto">Review saved Instagram inspiration links once Brave fetch is verified <span class="loe loe-m">S/M</span></div>
+        <div class="card assigned-truong">Security Hardening — pick posture (Lockdown vs Balanced) + schedule actions. <span class="loe loe-m">M</span></div>
         <div class="card assigned-truong">Upgrade OpenClaw + macOS/Homebrew system updates <span class="loe loe-m">M</span></div>
         <div class="card assigned-truong">Upgrade OpenClaw to latest release (token logging + new features) <span class="loe loe-l">L</span></div>
-        <div class="card assigned-pluto">Reddit API setup for sentiment monitoring <span class="loe loe-m">M</span></div>
-        <div class="card assigned-pluto">Google Calendar access wiring <span class="loe loe-m">M</span></div>
-        <div class="card assigned-truong">Review saved Instagram inspiration links once Brave fetch is verified <span class="loe loe-m">S/M</span></div>
+        <div class="card assigned-pluto">Define sub-agent team structure <span class="loe loe-xl">M/L</span></div>
+        <div class="card assigned-pluto">Portfolio automation tooling <span class="loe loe-m">M</span></div>
       </div>
     </details>
 
     <details class="column" open>
       <summary>For Review</summary>
       <div class="tasks">
-        <div class="card assigned-pluto">Token usage panel for dashboard (blocked on logging upgrade).</div>
-        <div class="card assigned-pluto">Visual Kanban automation ideas (awaiting direction).</div>
+        <div class="card assigned-pluto">Token usage dashboard panel (pending logging data).</div>
+        <div class="card assigned-pluto">Visual Kanban automation ideas awaiting approval.</div>
+        <div class="card assigned-pluto">TradingView paper trading workflow documentation.</div>
       </div>
     </details>
 
@@ -200,13 +203,13 @@
         <div class="card assigned-pluto">Email sending verified end-to-end.</div>
         <div class="card assigned-pluto">Brave Search API configured + `web_fetch` enabled.</div>
         <div class="card assigned-pluto">X (Twitter) developer access + API credentials secured.</div>
-        <div class="card assigned-truong">Social handles reserved (@PlutoPlata_Sentiment).</div>
-        <div class="card assigned-truong">GitHub SSH keys configured for deployment.</div>
+        <div class="card assigned-pluto">Configured X (Twitter) API keys in OpenClaw.</div>
+        <div class="card assigned-pluto">Social handles reserved (@PlutoPlata_Sentiment).</div>
+        <div class="card assigned-pluto">GitHub deploy SSH keys configured.</div>
       </div>
     </details>
   </section>
 
-
-  <footer>Pluto Plata Ops · Generated locally · GitHub Pages coming next.</footer>
+  <footer>Pluto Plata Ops · Token usage logging in progress · OpenAI budget capped at $20/month.</footer>
 </body>
 </html>

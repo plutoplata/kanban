@@ -57,6 +57,36 @@
       margin: 0;
       color: var(--muted);
     }
+    .recent-work {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 18px;
+      background: rgba(255,255,255,0.03);
+      margin-bottom: 24px;
+    }
+    .recent-work h2 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .recent-summary {
+      margin: 0 0 10px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .recent-work ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .recent-work li + li {
+      margin-top: 6px;
+    }
     .board {
       display: grid;
       grid-template-columns: repeat(4, minmax(230px, 1fr));
@@ -143,7 +173,22 @@
   </style>
 </head>
 <body>
-  <p class="subtitle">Updated Sat 02/28 @ 12:49 AM ET · OpenAI: N/A · Google: N/A</p>
+  <p class="subtitle">Updated Mon 03/02 @ 08:50 AM ET · OpenAI: N/A · Google: N/A</p>
+
+  <section class="recent-work">
+    <h2>Recent Activity</h2>
+    <p class="recent-summary"><!-- RECENT_SUMMARY_START -->Most recent 6 changes (since 2026-02-28 20:50 EST):<!-- RECENT_SUMMARY_END --></p>
+    <ul>
+      <!-- RECENT_WORK_START -->
+      <li>2026-03-01 10:03 · memory/corrections.log ·   0.4 KB</li>
+      <li>2026-03-01 10:02 · kanban/index.html ·   8.8 KB</li>
+      <li>2026-03-01 10:02 · DASHBOARD.md ·   4.4 KB</li>
+      <li>2026-03-01 10:02 · scripts/update_dashboard.sh ·   2.9 KB</li>
+      <li>2026-03-01 08:30 · scripts/recent_work.py ·   2.3 KB</li>
+      <li>2026-03-01 00:33 · memory/archive.md ·   0.1 KB</li>
+      <!-- RECENT_WORK_END -->
+    </ul>
+  </section>
 
   <section class="board">
     <details class="column" open>
